@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Language Translation Tool — CodeAlpha</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <nav class="tabs">
+    <span class="tab active"><i>◈</i> Translate</span>
+    <button class="tab" id="tab-history"><i>◷</i> History</button>
+    <a class="tab" href="/docs" target="_blank" rel="noopener"><i>▤</i> API</a>
+  </nav>
+  <span class="tab ghost" id="lang-count">Loading languages</span>
+</header>
+
+<main class="page">
+
+  <section class="brand">
+    <div class="ring"></div>
+    <h1>Lingua<span>Alpha</span></h1>
+    <p class="tagline">Translate text between 133 languages, with automatic language detection.</p>
+  </section>
+
+  <form class="composer" id="form">
+    <div class="langs">
+      <label class="select">
+        <span>From</span>
+        <select id="source" aria-label="Source language"></select>
+      </label>
+      <button type="button" class="swap" id="swap" title="Swap languages" aria-label="Swap languages">⇄</button>
+      <label class="select">
+        <span>To</span>
+        <select id="target" aria-label="Target language"></select>
+      </label>
+    </div>
+
+    <textarea id="input" maxlength="5000" placeholder="Type or paste anything to translate…" autofocus></textarea>
+
+    <div class="composer-foot">
+      <span class="count" id="count">0 / 5000</span>
+      <button type="submit" class="go" id="submit">Translate <i>→</i></button>
+    </div>
+  </form>
+
+  <div class="options">
+    <span class="muted" id="detected">Source language is detected automatically</span>
+    <label class="toggle">
+      <input type="checkbox" id="autospeak">
+      <span class="track"></span>
+      Read the result aloud
+    </label>
+  </div>
+
+  <p id="status" role="status"></p>
+
+  <section class="card result" id="result" hidden>
+    <header>
+      <h2>Translation</h2>
+      <span class="meta" id="meta"></span>
+    </header>
+    <p class="output" id="output"></p>
+    <div class="actions">
+      <button class="chip-btn" id="copy"><i>⧉</i> Copy</button>
+      <button class="chip-btn" id="speak"><i>◍</i> Speak</button>
+      <button class="chip-btn" id="clear"><i>×</i> Clear</button>
+    </div>
+  </section>
+
+  <section class="card" id="history" hidden>
+    <header>
+      <h2>Recent translations</h2>
+      <button class="link" id="clear-history">Clear all</button>
+    </header>
+    <ul class="history" id="history-list"></ul>
+  </section>
+
+  <section class="card about">
+    <h2>What is LinguaAlpha?</h2>
+    <p>
+      A translation tool built for the CodeAlpha Artificial Intelligence internship. Text is sent
+      to a translation engine, and the result comes back with the detected source language. If the
+      first engine is unreachable, a second one answers instead, so a single outage does not take
+      the tool down.
+    </p>
+    <div class="facts">
+      <span class="fact"><b>133</b> languages</span>
+      <span class="fact"><b>Auto</b> detection</span>
+      <span class="fact"><b>2</b> engines with fallback</span>
+      <span class="fact"><b>0</b> API keys needed</span>
+    </div>
+  </section>
+
+</main>
+<script src="/static/app.js"></script>
+</body>
+</html>

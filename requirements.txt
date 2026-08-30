@@ -1,0 +1,8 @@
+# Verified against the versions in the comments.
+fastapi>=0.115          # 0.115.6
+uvicorn[standard]>=0.34 # 0.34.0
+httpx>=0.28             # 0.28.1
+pydantic>=2.10          # 2.10.4
+
+# dev only
+pytest>=8.3             # 8.3.4
